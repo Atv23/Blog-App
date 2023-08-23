@@ -1,0 +1,16 @@
+<%- include("partials/header"); -%>
+
+<h1>Welcome !!</h1>
+<p>This is a blog website. Click on Add New button to add new blogs. Your blogs are saved in the database. Shortly delete function to delete blogs along with beautiful CSS will be added.</p>
+<% allposts.forEach(function(temp){ %>
+    <h2> <%= temp.title %> </h2>
+    <% if(temp.data.length>200) { %>
+        <%  let str = temp.data; %>
+        <p> <%= str.substr(0,200)+" ..." %> <a href="/post/<%= temp.title %>">Read More</a></p>
+    <% } else { %>
+    <p> <%= temp.data %> </p>
+    <% } }); %>
+    <hr>
+    <a href="compose"><button class="btn btn-primary addnew">Add New</button></a>
+
+<%- include("partials/footer"); -%>
